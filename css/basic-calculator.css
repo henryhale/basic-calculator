@@ -1,0 +1,137 @@
+
+@import 'styles.css';
+
+/* grid */
+.grid-cell {
+	display: grid;  
+}
+
+/* grid cells in a row */
+.grid-cell-2 {
+  	grid-template-columns: repeat(2, 1fr); 
+}
+
+.grid-cell-4 {
+  	grid-template-columns: repeat(4, 1fr); 
+}
+
+.grid-cell-6 {
+  	grid-template-columns: repeat(6, 1fr); 
+}
+
+.grid-cell-8 {
+  	grid-template-columns: repeat(8, 1fr); 
+}
+
+/* grid cell that covers row - exceptional */
+.grid-cell > .grid-cell-clear {
+	grid-column: 1 / -1;
+}
+
+/* grid gap between cells */
+.grid-cell-gap-2 {
+   	grid-gap: 2px;
+}
+
+.grid-cell-gap-4 {
+   	grid-gap: 4px;
+}
+
+.grid-cell-gap-6 {
+   	grid-gap: 6px;
+}
+
+.grid-cell-gap-8 {
+   	grid-gap: 8px;
+}
+
+/* grid cells with same height */
+.calc-main-body {
+	height: calc(100vh - 220px);
+	font-size: 1.5rem;
+}
+
+/* overflowing pill */
+.history-pill {
+	overflow: hidden;
+}
+
+
+
+/* dark mode */
+
+
+
+html.calc-darkmode,
+.calc-darkmode body {
+	background: #111;
+  	color: #ff974a;
+}
+
+
+.calc-darkmode .w3-text-blue, 
+.calc-darkmode .w3-transparent,
+.calc-darkmode .w3-hover-text-blue:hover
+{
+	color: #15b881 !important;
+}
+
+.calc-darkmode .w3-white,
+.calc-darkmode .w3-hover-blue,
+.calc-darkmode .w3-hover-light-grey:hover
+{
+	color: #ff974a !important;
+}
+
+.calc-darkmode .w3-glass {
+	background: rgba(0,0,0,.3) !important;
+}
+
+
+.calc-darkmode .w3-white:not(.w3-card),
+.calc-darkmode .w3-white.w3-hover-light-grey
+{
+	background: rgba(0,0,0,.5) !important;
+} 
+
+.calc-darkmode .w3-white.w3-card
+{
+	background: rgba(0,0,0,1) !important;
+}
+
+.calc-darkmode .w3-hover-blue:hover {
+	background: rgba(0,0,0,0.4) !important;
+}
+
+.calc-darkmode .w3-white.w3-hover-light-grey:hover
+{
+	background: rgba(0,0,0,0.4) !important;
+	opacity: .8 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.8)";
+    filter: alpha(opacity=0.8) !important;
+    -moz-opacity: 0.8 !important;
+}
+
+.calc-darkmode .w3-hover-light-grey:not(.w3-white):hover
+{
+	background: rgba(0,0,0,.3) !important;
+	opacity: .8 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.8)";
+    filter: alpha(opacity=0.8) !important;
+    -moz-opacity: 0.8 !important;
+}
+
+.calc-darkmode [disabled="true"].w3-hover-light-grey:hover{
+	opacity: .25 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.25)";
+    filter: alpha(opacity=0.25) !important;
+    -moz-opacity: 0.25 !important;
+}
+
+.calc-darkmode .w3-card {
+	-webkit-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
+	-moz-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
+	-ms-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
+	-o-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
+	box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
+}
