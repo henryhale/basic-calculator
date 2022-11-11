@@ -1,20 +1,20 @@
 /**
  * 
- * Codes by Henry Harrison
+ * Codes by Henry Hale
  * 
  */
 
 // Toast Plugin
-var useToastText = false;
+let useToastText = false;
 if (showToastFor) {
 	useToastText = true;
 	window.addEventListener("DOMContentLoaded", function () {
 		// Welcoming User
-		showToastFor('Windows Calculator Clone by Henry Harrison');
+		showToastFor('Windows Calculator Clone by Henry Hale');
 	}, false);
 }
 
-var _gridButton = new Array();
+let _gridButton = [];
 
 _gridButton = [
 	/* first row */
@@ -175,13 +175,13 @@ _gridButton = [
 ];
 
 
-var _calc_main_body = document.querySelector('.calc-main-body');
+let _calc_main_body = document.querySelector('.calc-main-body');
 
-var drawBtnGrid = function (options) {
-	var btnArr = options.btns || _gridButton;
-	var calMode = options.mode || 'basic';
+let drawBtnGrid = function (options) {
+	let btnArr = options.btns || _gridButton;
+	let calMode = options.mode || 'basic';
 	// Modes
-	var cMode = 0;
+	let cMode = 0;
 	switch(calMode) {
 		case 'basic':
 			cMode = 0;
@@ -195,11 +195,11 @@ var drawBtnGrid = function (options) {
 			break;
 	}
 
-	for (var i = 0; i < btnArr.length; i++) {
-		var _btn_hover = 'w3-hover-light-grey';
-		var _btn_bg = 'w3-glass';
-		var _btn_style = '';
-		var _btn_value = '';
+	for (let i = 0; i < btnArr.length; i++) {
+		let _btn_hover = 'w3-hover-light-grey';
+		let _btn_bg = 'w3-glass';
+		let _btn_style = '';
+		let _btn_value = '';
 		// hover
 		if (btnArr[i].type=='operand' || btnArr[i].type=='equals') {
 			_btn_hover = 'w3-hover-blue';
@@ -233,15 +233,15 @@ drawBtnGrid({
 });
 
 // events
-var solutionDisplay = document.querySelector('#solutionDisplay');
-var currentDisplay = document.querySelector('#currentDisplay');
+let solutionDisplay = document.querySelector('#solutionDisplay');
+let currentDisplay = document.querySelector('#currentDisplay');
 
 // refresh
-var addNewValue = false;
+let addNewValue = false;
 
 // click
 // numbers
-var _numbers = document.querySelectorAll('.number');
+let _numbers = document.querySelectorAll('.number');
 _numbers.forEach(function(b){
 	b.addEventListener('click', function(){
 		addInputValue(b.value);
@@ -250,7 +250,7 @@ _numbers.forEach(function(b){
 });
 
 // decimal
-var _dot = document.querySelector('.dot');
+let _dot = document.querySelector('.dot');
 _dot.addEventListener('click', function(){
 	if (currentDisplay.value.indexOf('.') > -1) {
 		return;
@@ -259,7 +259,7 @@ _dot.addEventListener('click', function(){
 });
 
 // operators
-var _operands = document.querySelectorAll('.operand');
+let _operands = document.querySelectorAll('.operand');
 _operands.forEach(function(c){
 	c.addEventListener('click', function(){
 		
@@ -274,11 +274,11 @@ _operands.forEach(function(c){
 });
 
 // negative(x)
-var negPos = document.querySelector('.negpos');
+let negPos = document.querySelector('.negpos');
 negPos.addEventListener('click', function(){
 	let aValue = currentDisplay.value;
 	if(aValue != 0){
-		var _negx = aValue.split('');
+		let _negx = aValue.split('');
 		if (aValue.includes('-')) {
 			_negx.shift();
 		} else {
@@ -289,13 +289,13 @@ negPos.addEventListener('click', function(){
 });
 
 // decimal
-var _percent = document.querySelector('.percent');
+let _percent = document.querySelector('.percent');
 _percent.addEventListener('click', function(){
 	currentDisplay.value /= 100;
 });
 
 // square root
-var _sqroot = document.querySelector('.sqroot');
+let _sqroot = document.querySelector('.sqroot');
 _sqroot.addEventListener('click', ()=>{
 	let aValue = currentDisplay.value;
 	if(aValue == '' || aValue == 0){
@@ -306,7 +306,7 @@ _sqroot.addEventListener('click', ()=>{
 });
 
 // square x^2
-var _square = document.querySelector('.square');
+let _square = document.querySelector('.square');
 _square.addEventListener('click', ()=>{
 	const aValue = currentDisplay.value;
 	if(aValue == '' || aValue == 0){
@@ -317,7 +317,7 @@ _square.addEventListener('click', ()=>{
 });
 
 // reciprocal
-var _reciprocal = document.querySelector('.reciprocal');
+let _reciprocal = document.querySelector('.reciprocal');
 _reciprocal.addEventListener('click', ()=>{
 	const aValue = currentDisplay.value;
 	if(aValue == '' || aValue == 0){
@@ -328,7 +328,7 @@ _reciprocal.addEventListener('click', ()=>{
 });
 
 // delete
-var _clearBtn = document.querySelectorAll('.clear');
+let _clearBtn = document.querySelectorAll('.clear');
 
 _clearBtn[0].addEventListener('click', function(){
 	currentDisplay.value = '0';
@@ -354,7 +354,7 @@ _clearBtn[2].addEventListener('click', function(){
 });
 
 //evaluate
-var _evalBtn = document.querySelectorAll('.equals');
+let _evalBtn = document.querySelectorAll('.equals');
 _evalBtn[0].addEventListener('click', function(){
 	if (currentDisplay.value!='0' && solutionDisplay.value!='') {
 		solutionDisplay.value += currentDisplay.value;
@@ -365,8 +365,8 @@ _evalBtn[0].addEventListener('click', function(){
 });
 
 /* HELPERS */
-var addInputValue = function (cval) {
-	var _maxLength = currentDisplay.getAttribute('maxlength') || 9;
+let addInputValue = function (cval) {
+	let _maxLength = currentDisplay.getAttribute('maxlength') || 9;
 	if (currentDisplay.value.length > _maxLength) {
 		return;
 	}
@@ -396,30 +396,27 @@ var addInputValue = function (cval) {
 	} 
 }
 
-var sanitizeStep = function(t) {
+let sanitizeStep = function(t) {
 	let _work = t;
 	_work = _work.substring(0, (_work.length - 2));
 	//console.log(work);
 	return _work;
 }
 
-var isNumOdd = function(x){
+let isNumOdd = function(x){
 	if (x % 2 == 0) {
 		return true;
 	}
 	return false;
 }
 
-var evalAndReturn = function (cvl) {
-	var work = cvl;
+let evalAndReturn = function (cvl) {
+	let work = cvl;
 	//console.log(work); 
-	var workShow;
+	let workShow;
 
-	var checkTimes = work.indexOf('×') || null;
-	var checkDiv = work.indexOf('÷') || null;
-	//var checkSin = work.indexOf('sin');
-	//var checkCos = work.indexOf('cos');
-	//var checkTan = work.indexOf('tan');
+	let checkTimes = work.indexOf('×') || null;
+	let checkDiv = work.indexOf('÷') || null;
 
 	workShow = work;
 
@@ -431,45 +428,7 @@ var evalAndReturn = function (cvl) {
 		workShow = workShow.split('÷').join('/');
 	}
 
-	//if (checkSin >= 0) { workShow = 'Math.'+work; }
-	//if (checkCos >= 0) { workShow = 'Math.'+work; }
-	//if (checkTan >= 0) { workShow = 'Math.'+work; }
-
-	var answerDerived = eval(workShow);
-
-	/*
-	*
-	* Tried to write an alogarithm to format the Answer 
-	* if decimal, round off to appropraite number 
-	*			keeping the total length less or equal to maxLength
-	* if not decimal but its length is greater than maxLength,
-	*			use Exponential
-	*		   #	
-	*		  ###	
-	*	....#######....
-	*
-	*	By Default, when Number of figures is greater than about 10, 
-	*		Most browsers return value with EXPONENTIAL 
-	*		which helps and solves my problem
-	*		  	
-	*	....#######....
-	*		  ###
-	* 		   #
-	* if (answerDerived.indexOf('.') == -1) {
-	*	if (answerDerived.length > currentDisplay.getAttribute('maxlength')) {
-	*
-	*	}
-	* } else if (answerDerived.indexOf('.') > 0) {
-	*
-	* }
-	*
-	*
-	* if (answerDerived.length >= 15 && answerDerived.indexOf('.') > -1) {
-	*	answerDerived = (answerDerived.toFixed(10)).substring(0, 12);
-	* } else if (answerDerived.length >= 15 && answerDerived.indexOf('.') == -1) {
-	*	answerDerived = (answerDerived).substring(0, 13);
-	* }
-	*/
+	let answerDerived = eval(workShow);
 
 	/* fixed to 5dps in the display area */
 	if (String(answerDerived).indexOf('.') > 0) {
@@ -488,8 +447,8 @@ var evalAndReturn = function (cvl) {
 }
 
 // save history
-var refreshHistoryTab = function () {
-	var _anyPills = document.querySelectorAll('.history-pill');
+let refreshHistoryTab = function () {
+	let _anyPills = document.querySelectorAll('.history-pill');
 	if (!_anyPills.length) {
 		document.querySelector('#historyTab').innerHTML = '<span id="emptyPill">There\'s no history yet</span>';
 	} else {
@@ -506,22 +465,22 @@ window.addEventListener('load', function(){
 });
 
 // handle device layout
-var handleLayoutNow = function() {
+let handleLayoutNow = function() {
 
-	var _isMobile = false;
+	let _isMobile = false;
 	if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Mobile') > -1 ) {
 		_isMobile = true;
 	}
 
-	var _layoutDiv = document.getElementById('layoutDiv');
+	let _layoutDiv = document.getElementById('layoutDiv');
   	if (_isMobile) {
     	// if we are on Mobile OS we activate 12 Block CSS Grid Layout
     	_layoutDiv.classList+=` w3\-row `;
 		if (_layoutDiv.hasChildNodes()) {
 			//console.log('hasChildNodes');
-			var _childArr = _layoutDiv.children;
+			let _childArr = _layoutDiv.children;
 			if (_childArr.length>1) {
-				for (var i = 0; i < _childArr.length; i++) {
+				for (let i = 0; i < _childArr.length; i++) {
 					_childArr[i].classList+= ` w3\-col s3 `;
 					_childArr[i].style.padding = 'padding:calc((100vh - 220px)/ 30)';
 					//console.log(i+':'+_childArr[i].classList);
@@ -532,35 +491,35 @@ var handleLayoutNow = function() {
 
 }
 
-var clearHistoryBtn = document.querySelector('#historyClear');
+let clearHistoryBtn = document.querySelector('#historyClear');
 clearHistoryBtn.addEventListener('click', function() {
 	document.querySelector('#historyTab').innerHTML = '<span id="emptyPill">There\'s no history yet</span>';
 });
 
-var createHistoryPill = function (_data) {
-	var _solution = _data.solution || null;
-	var _answer = _data.answer || null;
+let createHistoryPill = function (_data) {
+	let _solution = _data.solution || null;
+	let _answer = _data.answer || null;
 
 	// delete empty pill
-	var empty_pill = document.querySelector('#emptyPill');
+	let empty_pill = document.querySelector('#emptyPill');
 	if (empty_pill) {
 		empty_pill.style.display='none';
 	}
 
 	// create
-	var paraDiv = document.createElement("div");
+	let paraDiv = document.createElement("div");
 	paraDiv.setAttribute("class","w3-bar-item w3-right-align w3-hover-light-grey history-pill");
 
-	var soluDiv = document.createElement("div");
+	let soluDiv = document.createElement("div");
 	soluDiv.setAttribute("class","w3-block w3-opacity"); 
 
-	var answDiv = document.createElement("div");
+	let answDiv = document.createElement("div");
 	answDiv.setAttribute("class","w3-block fa-2x"); 
 
-	var _solutionTxt = document.createTextNode(_solution+' =');
-	var _answerTxt = document.createTextNode(_answer);
+	let _solutionTxt = document.createTextNode(_solution+' =');
+	let _answerTxt = document.createTextNode(_answer);
 
-	var _historyParent = document.querySelector('#historyTab');
+	let _historyParent = document.querySelector('#historyTab');
 
 	if (_answer!=null && _solution!=null) {
 
@@ -581,7 +540,7 @@ var createHistoryPill = function (_data) {
 
 /* toggle dropdown */
 function w3_dropdown(id) {
-  var x = document.getElementById(id);
+  let x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {  
     x.className += " w3-show";
   } else { 
@@ -590,10 +549,10 @@ function w3_dropdown(id) {
 }
 
 /* toggle side menu */
-var openMoreModal = document.getElementById('openMoreModal');
-var closeMoreModal = document.getElementById('closeMoreModal');
-var myOverlay = document.getElementById('myOverlay');
-var mySidebar = document.getElementById('mySidebar');
+let openMoreModal = document.getElementById('openMoreModal');
+let closeMoreModal = document.getElementById('closeMoreModal');
+let myOverlay = document.getElementById('myOverlay');
+let mySidebar = document.getElementById('mySidebar');
 openMoreModal.addEventListener('click',function () {
 	myOverlay.style.display = 'block';
 	mySidebar.style.display = 'block';
@@ -608,7 +567,7 @@ myOverlay.addEventListener('click', function () {
 
 
 /* FullScreen */
-var toggleFullScreen = function () {
+let toggleFullScreen = function () {
         if (
         		(document.fullScreenElement && document.fullScreenElement !== null) ||    
         		// alternative standard method
@@ -642,7 +601,7 @@ var toggleFullScreen = function () {
     };
 
 // Fullscreen handler
-var _fullScreenBtn = document.getElementById('fullScreenBtn');
+let _fullScreenBtn = document.getElementById('fullScreenBtn');
 if (_fullScreenBtn) {
 	_fullScreenBtn.addEventListener('click',function () {
 		closeMoreModal.click();
@@ -651,7 +610,7 @@ if (_fullScreenBtn) {
 }
 
 /* Dark Mode / Light Mode */
-var _htmlTag = document.documentElement;
+let _htmlTag = document.documentElement;
 /*
 	using body gave me a bug on my Android, 
 	to fix that i used html tag and
@@ -668,8 +627,8 @@ var _htmlTag = document.documentElement;
 
 	...
 */
-var _htmlBody = document.body;
-var _toggleDLMode = document.getElementById('darkModeBtn');
+let _htmlBody = document.body;
+let _toggleDLMode = document.getElementById('darkModeBtn');
 if (_toggleDLMode) {
 	_toggleDLMode.addEventListener('click',function(){
 		_htmlTag.classList.toggle('calc-darkmode');
@@ -713,15 +672,15 @@ window.addEventListener('load', function () {
 /* ADJUSTMENTS */
 
 /* History Shade for Mobile */
-var _toggleHistoryShade = document.getElementById('toggleHistoryShade');
-var _historyShade = document.getElementById('historyShade');
-var _buttonShade = document.getElementById('buttonShade');
-var _historyVClear = document.getElementById('historyVClear');
-var _historyShadeBack = document.getElementById('toggleHistoryShadeBack');
+let _toggleHistoryShade = document.getElementById('toggleHistoryShade');
+let _historyShade = document.getElementById('historyShade');
+let _buttonShade = document.getElementById('buttonShade');
+let _historyVClear = document.getElementById('historyVClear');
+let _historyShadeBack = document.getElementById('toggleHistoryShadeBack');
 if (_toggleHistoryShade && _historyShade && _buttonShade && _historyVClear && _toggleHistoryShade && _historyShadeBack ) {
 	_toggleHistoryShade.addEventListener('click',function(){
 		if (_historyShade.classList.contains(`w3-hide-small`)) {
-			var _tArr = _historyShade.className.split(' ');
+			let _tArr = _historyShade.className.split(' ');
 			_tArr.pop();
 			_historyShade.className = _tArr.join(' ');
 		}
@@ -753,7 +712,7 @@ window.addEventListener('keydown',function (e) {
 
 	e.preventDefault();
 
-	var _theCharCode;
+	let _theCharCode;
 	if (e.which) {
 		_theCharCode = e.which;
 	} else {
@@ -764,7 +723,7 @@ window.addEventListener('keydown',function (e) {
 	// mapping
 	// has a bug, it doesn't return new array
 
-	var _expectedKeys = _gridButton.map(function (value, index, arr) {
+	let _expectedKeys = _gridButton.map(function (value, index, arr) {
 		if (value.code) {
 			//console.log(value);
 			return value.code;
@@ -774,18 +733,18 @@ window.addEventListener('keydown',function (e) {
 	/* 
 	// filtering
 	*/
-	var _expectedKeys = _gridButton.filter(function (nxt) {
+	let _expectedKeys = _gridButton.filter(function (nxt) {
 		return nxt && nxt.code;	
 	});
 	if (_expectedKeys) {
 		//console.log(_expectedKeys);
-		for (var i = 0; i < _expectedKeys.length; i++) {
+		for (let i = 0; i < _expectedKeys.length; i++) {
 			if (_expectedKeys[i].code[0] != null) { 
 				if ( (_expectedKeys[i].code[0] == _theCharCode) || (_expectedKeys[i].code[1] ==  _theCharCode) ) {
 
 					/* general flow to capture */
 					//console.log(_expectedKeys[i].name);
-					var _idElem = null;
+					let _idElem = null;
 					if(_expectedKeys[i].type == 'number'){
 						_idElem = '.number[value="'+_expectedKeys[i].value+'"]';
 					} else if (_expectedKeys[i].type == 'operand') {
@@ -799,7 +758,7 @@ window.addEventListener('keydown',function (e) {
 					}
 
 					if (_idElem!=null) {
-						var _catchElem = document.querySelector(_idElem);
+						let _catchElem = document.querySelector(_idElem);
 						if (_catchElem) {
 							_catchElem.click();
 						}
@@ -813,7 +772,7 @@ window.addEventListener('keydown',function (e) {
 					// Cloned the first case
 					/* general flow to capture */
 					//console.log(_expectedKeys[i].name);
-					var _idElem = null;
+					let _idElem = null;
 					if(_expectedKeys[i].type == 'number'){
 						_idElem = '.number[value="'+_expectedKeys[i].value+'"]';
 					} else if (_expectedKeys[i].type == 'operand') {
@@ -827,7 +786,7 @@ window.addEventListener('keydown',function (e) {
 					}
 
 					if (_idElem!=null) {
-						var _catchElem = document.querySelector(_idElem);
+						let _catchElem = document.querySelector(_idElem);
 						if (_catchElem) {
 							_catchElem.click();
 						}
