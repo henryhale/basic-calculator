@@ -4,16 +4,6 @@
  * 
  */
 
-// Toast Plugin
-let useToastText = false;
-if (showToastFor) {
-	useToastText = true;
-	window.addEventListener("DOMContentLoaded", function () {
-		// Welcoming User
-		showToastFor('Windows Calculator Clone by Henry Hale');
-	}, false);
-}
-
 let _gridButton = [];
 
 _gridButton = [

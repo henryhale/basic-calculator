@@ -1,6 +1,3 @@
-
-@import 'styles.css';
-
 /* grid */
 .grid-cell {
 	display: grid;  
@@ -107,31 +104,18 @@ html.calc-darkmode,
 {
 	background: rgba(0,0,0,0.4) !important;
 	opacity: .8 !important;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.8)";
-    filter: alpha(opacity=0.8) !important;
-    -moz-opacity: 0.8 !important;
 }
 
 .calc-darkmode .w3-hover-light-grey:not(.w3-white):hover
 {
 	background: rgba(0,0,0,.3) !important;
 	opacity: .8 !important;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.8)";
-    filter: alpha(opacity=0.8) !important;
-    -moz-opacity: 0.8 !important;
 }
 
 .calc-darkmode [disabled="true"].w3-hover-light-grey:hover{
 	opacity: .25 !important;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.25)";
-    filter: alpha(opacity=0.25) !important;
-    -moz-opacity: 0.25 !important;
 }
 
 .calc-darkmode .w3-card {
-	-webkit-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
-	-moz-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
-	-ms-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
-	-o-box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
 	box-shadow: 0 0 .5em rgba(4,9,20,0.03) !important;
 }
